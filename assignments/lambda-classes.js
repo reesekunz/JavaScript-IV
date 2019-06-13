@@ -40,11 +40,11 @@ class Student extends Person {
   listsSubjects() {
     return this.favSubjects;
   }
-  PRAssignment(subject) {
-    return this.name + " has submitted a PR for " + subject;
+  PRAssignment(studentName, subject) {
+    return studentName + " has submitted a PR for " + subject;
   }
-  sprintChallenge(subject) {
-    return this.name + " has begun sprint challenge on " + subject;
+  sprintChallenge(studentName, subject) {
+    return studentName + " has begun sprint challenge on " + subject;
   }
 }
 
@@ -166,10 +166,10 @@ console.log(john.grade('the sprint challenge')); // John receives a perfect scor
 
 console.log(draymond.listsSubjects()); // ['Html', 'CSS', 'React']
 
-console.log(draymond.PRAssignment('JavaScript IV')); // this.name has submitted a PR for this.subject.
+console.log(draymond.PRAssignment('Ralph', 'JavaScript IV')); // Ralph has submitted a PR for JavaScript IV 
 
-console.log(drake.sprintChallenge('JavaScript Fundamentals')); // Drake has begun sprint challenge on JavaScript Fundamentals 
+console.log(drake.sprintChallenge('Steve', 'JavaScript Fundamentals')); // Steve has begun sprint challenge on JavaScript Fundamentals 
 
 console.log(steph.standUp('WEB21')); // Steph announes to WEB21, @channel standby times!
 
-console.log(kawhi.debugsCode('Reeses','CSS')); // Kawhi debugs Reeses code on CSS
+console.log(kawhi.debugsCode('Reese','CSS')); // Kawhi debugs Reeses code on CSS
