@@ -57,40 +57,37 @@ this.dimensions = attributes.dimensions
 
 }
 
-GameObject.prototype.destroy = function(){
+destroy(){
 return this.name + 'was removed from the game. ';
 }
 }
 
 
-class CharacterStats
+class CharacterStats extends GameObject
 {constructor(attributes)
 {
-GameObject.call(this, attributes)
+super(attributes);
 this.healthPoints = attributes.healthPoints
 
 }
 
-CharacterStats.prototype = Object.create(GameObject.prototype);
-CharacterStats.prototype.takeDamage = function(){
+takeDamage(){
 return this.name + ' took damage ';
 }
 }
 
 
-class Humanoid
+class Humanoid extends CharacterStats 
 {constructor(attributes)
 {
-CharacterStats.call(this, attributes)
+super(attributes);
 this.team = attributes.team 
 this.weapons = attributes.weapons
 this.language = attributes.language 
 }
 
-Humanoid.prototype = Object.create(CharacterStats.prototype);
-Humanoid.prototype.greet = function(){
-
-  return this.name + ' offers a greeting in ' + this.language;
+greet(){
+return this.name + ' offers a greeting in ' + this.language;
 }
 }
 
