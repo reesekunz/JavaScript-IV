@@ -48,7 +48,8 @@ Prototype Refactor
   * Instances of CharacterStats should have all of the same properties as GameObject.
 */
 
-function GameObject(attributes)
+class GameObject
+{ constructor(attributes)
 {
 this.createdAt = attributes.createdAt 
 this.name = attributes.name  
@@ -59,10 +60,11 @@ this.dimensions = attributes.dimensions
 GameObject.prototype.destroy = function(){
 return this.name + 'was removed from the game. ';
 }
+}
 
 
-
-function CharacterStats(attributes)
+class CharacterStats
+{constructor(attributes)
 {
 GameObject.call(this, attributes)
 this.healthPoints = attributes.healthPoints
@@ -73,10 +75,11 @@ CharacterStats.prototype = Object.create(GameObject.prototype);
 CharacterStats.prototype.takeDamage = function(){
 return this.name + ' took damage ';
 }
+}
 
 
-
-function Humanoid(attributes)
+class Humanoid
+{constructor(attributes)
 {
 CharacterStats.call(this, attributes)
 this.team = attributes.team 
@@ -89,6 +92,9 @@ Humanoid.prototype.greet = function(){
 
   return this.name + ' offers a greeting in ' + this.language;
 }
+}
+
+
 
 new Humanoid(
   {
